@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:ProiectPDMXamarin_Login.CustomControls"
+             x:Class="ProiectPDMXamarin_Login.Pages.ProfilePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="40">
+                <Frame BackgroundColor="#03223b" HasShadow="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="0">
+                            <Entry x:Name="FirstName"  Text ="{Binding FirstName}" Placeholder="First Name" PlaceholderColor="Black" HeightRequest="40" TextColor="Black"></Entry>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1">
+                            <Entry x:Name="LastName" Text ="{Binding LastName}" Placeholder="Last Name" PlaceholderColor="Black" HeightRequest="40" TextColor="Black"></Entry>
+                        </StackLayout>
+                        
+                        <StackLayout Grid.Row="2">
+                            <Entry x:Name="EmailAddress"  Text ="{Binding EmailAddress}" Keyboard="Email" Placeholder="Email Address" PlaceholderColor="Black" HeightRequest="40" TextColor="Black"></Entry>
+                        </StackLayout>
+                        
+                        <StackLayout Grid.Row="3">
+                            <Entry x:Name="PhoneNumber" Text ="{Binding PhoneNumber}" Placeholder="Phone Number" PlaceholderColor="Black" HeightRequest="40" TextColor="Black"></Entry>
+                        </StackLayout>
+                        <StackLayout Grid.Row="4">
+                            <local:CustomPicker Placeholder="Gender" PlaceholderColor="#000000" x:Name="Gender"  HeightRequest="40"  BackgroundColor="White" >
+                                <Picker.Items>
+                                    <x:String>Female</x:String>
+                                    <x:String>Male</x:String>
+                                </Picker.Items>
+                            </local:CustomPicker>
+                        </StackLayout>
+                        <StackLayout Grid.Row="5">
+                            <Frame BackgroundColor="White">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label  Text="Birthday" TextColor="Black" ></Label>
+                                    <DatePicker x:Name="Birthday" BackgroundColor="White" HorizontalOptions="FillAndExpand"></DatePicker >
+                                </StackLayout>
+                            </Frame>
+
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="6">
+                            <Button Text="Save"  Clicked ="Save_Button_Clicked" TextColor="White"  
+                            FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand"  
+                            BackgroundColor="#088da5" HeightRequest="40" BorderColor="#000000"/>
+
+                        </StackLayout>
+                        
+                   
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

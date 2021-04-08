@@ -1,4 +1,10 @@
-﻿using Xamarin.Forms;
+﻿using System.Collections.Generic;
+using System.Reflection;
+using Windows.ApplicationModel.Activation;
+using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+
+
 namespace ProiectPDMXamarin_Login
 {
     public partial class App : Application
@@ -6,7 +12,10 @@ namespace ProiectPDMXamarin_Login
         public App()
         {
             InitializeComponent();
-            MainPage = new ProiectPDMXamarin_Login.Pages.LoginPage();
+
+            //MainPage = new ProiectPDMXamarin_Login.Pages.LoginPage();
+            MainPage = new ProiectPDMXamarin_Login.Pages.MasterPage();
+        
         }
 
         protected override void OnStart()
@@ -21,5 +30,7 @@ namespace ProiectPDMXamarin_Login
         {
             // Handle when your app resumes  
         }
+
+          
     }
 }

@@ -13,6 +13,11 @@ namespace ProiectPDMXamarin_Login
         public MainPage()
         {
             InitializeComponent();
+
+
+
+
+
         }
     }
 }
