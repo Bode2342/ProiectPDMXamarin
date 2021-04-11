@@ -150,9 +150,9 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProiectPDMXamarin_Login\ProiectPDMXamarin_Login.csproj">
-      <Project>{A9EA7CCF-9BED-465C-9BB5-1F077FBD400D}</Project>
-      <Name>ProiectPDMXamarin_Login</Name>
+    <ProjectReference Include="..\ProiectPDMXamarin_Login\ProiectPDMXamarin.csproj">
+      <Project>{49F69E93-0384-488E-A09F-E22997A353CF}</Project>
+      <Name>ProiectPDMXamarin</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

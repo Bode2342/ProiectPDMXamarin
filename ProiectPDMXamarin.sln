@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProiectPDMXamarin_Login.UWP", "ProiectPDMXamarin_Login\ProiectPDMXamarin_Login.UWP\ProiectPDMXamarin_Login.UWP.csproj", "{3A98F834-78F1-4B2B-960A-676789B4D994}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProiectPDMXamarin.UWP", "ProiectPDMXamarin_Login\ProiectPDMXamarin_Login.UWP\ProiectPDMXamarin.UWP.csproj", "{3A98F834-78F1-4B2B-960A-676789B4D994}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProiectPDMXamarin_Login.Android", "ProiectPDMXamarin_Login\ProiectPDMXamarin_Login.Android\ProiectPDMXamarin_Login.Android.csproj", "{55850F6E-963E-4C50-8001-25FB16FBCFD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProiectPDMXamarin.Android", "ProiectPDMXamarin_Login\ProiectPDMXamarin_Login.Android\ProiectPDMXamarin.Android.csproj", "{55850F6E-963E-4C50-8001-25FB16FBCFD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProiectPDMXamarin_Login.iOS", "ProiectPDMXamarin_Login\ProiectPDMXamarin_Login.iOS\ProiectPDMXamarin_Login.iOS.csproj", "{337B1F53-F52D-4283-8BD9-9C769B3AF306}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProiectPDMXamarin.iOS", "ProiectPDMXamarin_Login\ProiectPDMXamarin_Login.iOS\ProiectPDMXamarin.iOS.csproj", "{337B1F53-F52D-4283-8BD9-9C769B3AF306}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProiectPDMXamarin_Login", "ProiectPDMXamarin_Login\ProiectPDMXamarin_Login\ProiectPDMXamarin_Login.csproj", "{49F69E93-0384-488E-A09F-E22997A353CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProiectPDMXamarin", "ProiectPDMXamarin_Login\ProiectPDMXamarin_Login\ProiectPDMXamarin.csproj", "{49F69E93-0384-488E-A09F-E22997A353CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

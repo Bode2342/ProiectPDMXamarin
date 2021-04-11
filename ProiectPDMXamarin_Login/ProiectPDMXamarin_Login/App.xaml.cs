@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using ProiectPDMXamarin.Pages;
+using Xamarin.Forms;
 namespace ProiectPDMXamarin_Login
 {
     public partial class App : Application
@@ -6,7 +7,7 @@ namespace ProiectPDMXamarin_Login
         public App()
         {
             InitializeComponent();
-            MainPage = new ProiectPDMXamarin_Login.Pages.LoginPage();
+            MainPage = new NavigationPage(new AdaugaMasa());
         }
 
         protected override void OnStart()
