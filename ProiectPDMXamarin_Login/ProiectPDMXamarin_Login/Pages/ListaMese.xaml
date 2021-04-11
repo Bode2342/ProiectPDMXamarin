@@ -6,7 +6,15 @@
         <StackLayout>
 
             <Label Text="{Binding Data, StringFormat='Mese: {0}'}" FontSize="Title" Padding="30,10,30,10"/>
-            <ListView x:Name="listViewMese">
+            <ListView x:Name="listViewMese" IsGroupingEnabled="true" GroupDisplayBinding="{Binding TipMasa}">
+
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Titlu}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -19,8 +27,6 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-
-
 
             </ListView>
         </StackLayout>

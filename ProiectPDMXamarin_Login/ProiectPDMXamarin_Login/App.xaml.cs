@@ -7,7 +7,7 @@ namespace ProiectPDMXamarin_Login
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new AdaugaMasa());
+            MainPage = new NavigationPage(new ListaMese());
         }
 
         protected override void OnStart()

@@ -1,4 +1,5 @@
 ﻿using ProiectPDMXamarin.Services;
+using ProiectPDMXamarin.ViewModels;
 using ProiectPDMXamarin_Login.Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,16 @@ namespace ProiectPDMXamarin.Pages
             data = data ?? DateTime.Now.Date;
             MasaServiciu serviciu = new MasaServiciu();
             listaMese = serviciu.ObtineMese(data.Value);
-            listViewMese.ItemsSource = listaMese;
+            var listaGrupata = listaMese.GroupBy(l => l.TipMasa.ToString()).ToList();
+            var result = new List<ListaMeseViewModel>();
+            listaGrupata.ForEach(g =>
+            {
+                var mese = new ListaMeseViewModel();
+                mese.AddRange(g.ToList());
+                mese.Nume = g.Key;
+                result.Add(mese);
+           });
+        listViewMese.ItemsSource = result;
         }
-    }
+}
 }
