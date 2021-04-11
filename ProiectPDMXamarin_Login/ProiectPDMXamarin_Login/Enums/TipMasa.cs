@@ -6,7 +6,7 @@ namespace ProiectPDMXamarin_Login.Enums
 {
     public enum TipMasa
     {
-        MicDejun = 1,
+        MicDejun,
         Pranz,
         Cina,
         Gustare
