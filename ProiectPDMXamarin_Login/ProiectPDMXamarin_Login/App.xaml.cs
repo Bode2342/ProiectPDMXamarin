@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ProiectPDMXamarin_Login.Models;
+using System.Collections.Generic;
 using System.Reflection;
 using Windows.ApplicationModel.Activation;
 using Xamarin.Forms;
@@ -14,7 +15,15 @@ namespace ProiectPDMXamarin_Login
             InitializeComponent();
 
             //MainPage = new ProiectPDMXamarin_Login.Pages.LoginPage();
-            MainPage = new ProiectPDMXamarin_Login.Pages.MasterPage();
+            User user = new User();
+            user.FirstName = "Simona";
+            user.LastName = "Pascal";
+            user.Birthday = "1998-03-26";
+            user.Gender = "Female";
+            user.PhoneNumber = "0828292922";
+            user.Password = "bau bau";
+            user.EmailAddress = "simo@gmail.com";
+            MainPage = new ProiectPDMXamarin_Login.Pages.MasterPage(user);
         
         }
 

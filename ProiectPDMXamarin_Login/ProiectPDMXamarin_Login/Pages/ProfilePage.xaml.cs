@@ -39,18 +39,33 @@ namespace ProiectPDMXamarin_Login.Pages
 
         }
 
-        private void Save_Button_Clicked(object sender, EventArgs e)
+      
+        static void updateMasterUI(User user)
+        {
+            MasterPage page = new MasterPage(user);
+            page.NameLabel.Text = user.FirstName + " " + user.LastName;
+            DateTime zeroTime = new DateTime(1, 1, 1);
+
+            DateTime a = DateTime.Now;
+            DateTime b = DateTime.Parse(user.Birthday);
+
+            TimeSpan span = a.Subtract(b);
+
+            int years = (zeroTime + span).Year - 1;
+            page.UserInfo.Text = user.Gender + " - " + years + " years old";
+        }
+
+        private void Save_Button_Pressed(object sender, EventArgs e)
         {
             user.FirstName = FirstName.Text;
             user.LastName = LastName.Text;
             user.PhoneNumber = PhoneNumber.Text;
             user.Gender = Gender.SelectedItem.ToString();
-            user.Birthday = Birthday.ToString();
+            user.Birthday = Birthday.Date.ToString();
             user.EmailAddress = EmailAddress.Text;
-            daoUser.updateUser(user); 
-
+            daoUser.updateUser(user);
+            userInformation.Text = user.FirstName + " - " + user.LastName + " - " + user.PhoneNumber + " - " + user.Gender + " - " + user.Birthday + " - " + user.EmailAddress;
+            
         }
-
-    
     }
 }

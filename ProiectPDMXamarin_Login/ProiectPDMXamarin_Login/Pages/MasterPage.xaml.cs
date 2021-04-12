@@ -14,8 +14,8 @@ namespace ProiectPDMXamarin_Login.Pages
     public partial class MasterPage : MasterDetailPage
     {
         List<MenuItems> menu;
-        User user;
-        public MasterPage()
+        public User user;
+        public MasterPage(User user)
         {
 
             InitializeComponent();
@@ -30,22 +30,14 @@ namespace ProiectPDMXamarin_Login.Pages
             menu.Add(new MenuItems { OptionName = "Body index", IconName = "Images/body_index_icon.png" });
             
             navigationList.ItemsSource = menu;
-
-            user = new User();
-            user.FirstName = "Simona";
-            user.LastName = "Pascal";
-            user.Birthday = "1998-03-26";
-            user.Gender = "Female";
-            user.PhoneNumber = "0828292922";
-            user.Password = "bau bau";
-            user.EmailAddress = "simo@gmail.com";
-            
+            this.user = user;
             Detail = new NavigationPage(new ProfilePage(user));
             updateUI(user);
         }
 
         void updateUI(User user)
         {
+            
             NameLabel.Text = user.FirstName + " " + user.LastName;
             DateTime zeroTime = new DateTime(1, 1, 1);
 
@@ -65,7 +57,7 @@ namespace ProiectPDMXamarin_Login.Pages
             try
             {
                 var item = e.Item as MenuItems;
-
+                updateUI(user);
                 switch (item.OptionName)
                 {
                     case "Recipes":
@@ -76,6 +68,7 @@ namespace ProiectPDMXamarin_Login.Pages
                         break;
                     case "Profile":
                         {
+                            
                             Detail.Navigation.PushAsync(new ProfilePage(user));
                             IsPresented = false;
                         }
