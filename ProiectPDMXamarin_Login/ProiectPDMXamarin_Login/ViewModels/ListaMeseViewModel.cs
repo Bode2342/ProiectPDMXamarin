@@ -6,6 +6,15 @@ using System.Text;
 
 namespace ProiectPDMXamarin.ViewModels
 {
+    public class ListaViewModel
+    {
+        public DateTime DataSelectata { get; set; } = DateTime.Now.Date;
+        public DateTime DataMinima { get; set; } = new DateTime(DateTime.Now.Year, 1, 1);
+        public DateTime DataMaxima { get; set; } = DateTime.Now.Date.AddDays(7);
+
+        public List<ListaMeseViewModel> ListaMese { get; set; }
+    }
+
     public class ListaMeseViewModel: List<Masa>
     {
         public string Nume { get; set; }

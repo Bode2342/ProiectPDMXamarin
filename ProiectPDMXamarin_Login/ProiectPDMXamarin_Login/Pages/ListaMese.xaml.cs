@@ -15,24 +15,36 @@ namespace ProiectPDMXamarin.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaMese : ContentPage
     {
-        List<Masa> listaMese;
+        ListaViewModel vm = new ListaViewModel();
 
         public ListaMese(DateTime? data = null)
         {
             InitializeComponent();
             data = data ?? DateTime.Now.Date;
+            AduDate(data);
+        }
+
+        private void AduDate(DateTime? data)
+        {
             MasaServiciu serviciu = new MasaServiciu();
-            listaMese = serviciu.ObtineMese(data.Value);
+            var listaMese = serviciu.ObtineMese(data.Value);
             var listaGrupata = listaMese.GroupBy(l => l.TipMasa.ToString()).ToList();
-            var result = new List<ListaMeseViewModel>();
+            vm.ListaMese = new List<ListaMeseViewModel>();
             listaGrupata.ForEach(g =>
             {
                 var mese = new ListaMeseViewModel();
                 mese.AddRange(g.ToList());
                 mese.Nume = g.Key;
-                result.Add(mese);
-           });
-        listViewMese.ItemsSource = result;
+                vm.ListaMese.Add(mese);
+            });
+            listViewMese.ItemsSource = vm.ListaMese;
+            BindingContext = vm;
         }
-}
+
+        void OnDateChanged(object sender, DateChangedEventArgs e)
+        {
+            vm.DataSelectata = e.NewDate.Date;
+            AduDate(vm.DataSelectata);
+        }
+    }
 }

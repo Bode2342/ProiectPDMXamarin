@@ -12,34 +12,32 @@ using Xamarin.Forms;
 
 namespace ProiectPDMXamarin.ViewModels
 {
-    public class MasaViewModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string prop)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
+    public class MasaViewModel
+    { 
         public string NumeMancare { get; set; }
         public int NumarCalorii { get; set; }
         public string TipMasa { get; set; }
+        public DateTime DataSelectata { get; set; } = DateTime.Now.Date;
+        public DateTime DataMinima { get; set; } = new DateTime(DateTime.Now.Year, 1, 1);
+        public DateTime DataMaxima { get; set; } = DateTime.Now.Date.AddDays(7);
         public List<string> ListaTipMese { get; set; }
         public ICommand AdaugaCommand { get; set; }
         public INavigation Navigation { get; set; }
 
         public MasaViewModel()
         {
-            ListaTipMese = Enum.GetNames(typeof(TipMasa)).ToList(); 
+            ListaTipMese = TipMasaEnum.List.OrderBy(e => e.Value).Select(e => e.Name).ToList() ; 
             AdaugaCommand = new Command(Adauga_Click);
         }
 
         private void Adauga_Click()
         {
-            Enum.TryParse(TipMasa, out TipMasa tipMasa);
-            var masa = new Masa() { 
-                TipMasa = tipMasa,
+            var masa = new Masa()
+            {
+                TipMasa = TipMasaEnum.FromValue(Int32.Parse(TipMasa)).Name,
                 Nume = NumeMancare,
                 Calorii = NumarCalorii,
-                Data = DateTime.Now.Date
+                Data = DataSelectata.Date
             };
 
             var serviciu = new MasaServiciu();

@@ -13,7 +13,7 @@ namespace ProiectPDMXamarin_Login.Models
 
         public DateTime Data { get; set; }
 
-        public TipMasa TipMasa { get; set; }
+        public string TipMasa { get; set; }
 
         public int Calorii { get; set; }
 

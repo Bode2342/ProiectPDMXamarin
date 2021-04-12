@@ -5,7 +5,13 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Label Text="{Binding Data, StringFormat='Mese: {0}'}" FontSize="Title" Padding="30,10,30,10"/>
+            <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="Selectati data:"/>
+            <DatePicker Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                DateSelected="OnDateChanged"
+                MinimumDate="{Binding DataMinima}"
+                MaximumDate="{Binding DataMaxima}"
+                Date="{Binding DataSelectata}" />
+
             <ListView x:Name="listViewMese" IsGroupingEnabled="true" GroupDisplayBinding="{Binding TipMasa}">
 
                 <ListView.GroupHeaderTemplate>
@@ -19,7 +25,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
+                            <StackLayout Padding="20,0,0,0" Orientation="Horizontal">
                                 <Label Text="{Binding TipMasa}"/>
                                 <Label Text="{Binding Nume}"/>
                                 <Label Text="{Binding Calorii,StringFormat='= {0} calorii'}"/>
