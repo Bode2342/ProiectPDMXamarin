@@ -5,7 +5,9 @@
              x:Class="ProiectPDMXamarin_Login.Pages.ProfilePage">
     <ContentPage.Content>
         <ScrollView>
+            
             <StackLayout Padding="40">
+                <
                 <Frame BackgroundColor="#03223b" HasShadow="True">
                     <Grid>
                         <Grid.RowDefinitions>
