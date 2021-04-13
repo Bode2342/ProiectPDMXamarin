@@ -68,7 +68,7 @@ namespace ProiectPDMXamarin_Login.Pages
                         break;
                     case "Profile":
                         {
-                            
+
                             Detail.Navigation.PushAsync(new ProfilePage(user));
                             IsPresented = false;
                         }
