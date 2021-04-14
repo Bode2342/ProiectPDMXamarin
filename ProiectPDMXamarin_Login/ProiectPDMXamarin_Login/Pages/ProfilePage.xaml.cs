@@ -67,7 +67,7 @@ namespace ProiectPDMXamarin_Login.Pages
             user.Birthday = Birthday.Date.ToString();
             user.EmailAddress = EmailAddress.Text;
             daoUser.updateUser(user);
-            userViewModel.changeName("caca");
+            userViewModel.changeName("blalalala");
             userInformation.Text = user.FirstName + " - " + user.LastName + " - " + user.PhoneNumber + " - " + user.Gender + " - " + user.Birthday + " - " + user.EmailAddress;
             
         }
