@@ -49,7 +49,23 @@ namespace ProiectPDMXamarin_Login.Models
                 d1.Birthday = user.Birthday;
                 d1.Password = user.Password;
                 d1.PhoneNumber = user.PhoneNumber;
-   
+                d1.ProfileImage = user.ProfileImage;
+                connection.Update(d1);
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool saveProfileImage(User user)
+        {
+            var data = connection.Table<User>();
+            var d1 = (from values in data where values.Id == user.Id select values).Single();
+            if (true)
+            {
+
+                d1.ProfileImage = user.ProfileImage;
+
                 connection.Update(d1);
                 return true;
             }

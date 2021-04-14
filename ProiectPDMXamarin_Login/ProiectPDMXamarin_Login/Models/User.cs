@@ -16,6 +16,7 @@ namespace ProiectPDMXamarin_Login.Models
         public string PhoneNumber { get; set; }
         public string Gender { get; set; }
         public string Birthday { get; set; }
+        public byte[] ProfileImage { get; set; }
 
         public User()
         {

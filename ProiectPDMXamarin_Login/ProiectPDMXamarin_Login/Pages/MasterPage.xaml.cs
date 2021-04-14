@@ -33,12 +33,13 @@ namespace ProiectPDMXamarin_Login.Pages
             this.user = user;
             Detail = new NavigationPage(new ProfilePage(user));
             updateUI(user);
+
         }
 
         void updateUI(User user)
         {
             
-            NameLabel.Text = user.FirstName + " " + user.LastName;
+            UserName.Text = user.FirstName + " " + user.LastName;
             DateTime zeroTime = new DateTime(1, 1, 1);
 
             DateTime a = DateTime.Now;
@@ -47,7 +48,7 @@ namespace ProiectPDMXamarin_Login.Pages
             TimeSpan span = a - b;
 
             int years = (zeroTime + span).Year - 1;
-            UserInfo.Text = user.Gender + " - " + years + " years old";     
+            UserDetails.Text = user.Gender + " - " + years + " years old";     
         }
 
 
