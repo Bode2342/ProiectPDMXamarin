@@ -1,4 +1,5 @@
 ﻿using ProiectPDMXamarin_Login.Models;
+using ProiectPDMXamarin_Login.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,15 @@ namespace ProiectPDMXamarin_Login.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
-        User user;
-        DaoUser daoUser;
+        private User user;
+        private DaoUser daoUser;
+        private UserViewModel userViewModel;
         public ProfilePage(User u)
         {
             InitializeComponent();
 
+            userViewModel = new UserViewModel();
+            BindingContext = userViewModel;
             user = u;
             daoUser = new DaoUser();
             daoUser.AddUser(user);
@@ -27,7 +31,7 @@ namespace ProiectPDMXamarin_Login.Pages
 
         }
 
-        void updateUI(User user)
+        private void updateUI(User user)
         {
             FirstName.Text = user.FirstName;
             LastName.Text = user.LastName;
@@ -39,8 +43,7 @@ namespace ProiectPDMXamarin_Login.Pages
 
         }
 
-      
-        static void updateMasterUI(User user)
+        private static void updateMasterUI(User user)
         {
             MasterPage page = new MasterPage(user);
             page.NameLabel.Text = user.FirstName + " " + user.LastName;
@@ -64,6 +67,7 @@ namespace ProiectPDMXamarin_Login.Pages
             user.Birthday = Birthday.Date.ToString();
             user.EmailAddress = EmailAddress.Text;
             daoUser.updateUser(user);
+            userViewModel.changeName("caca");
             userInformation.Text = user.FirstName + " - " + user.LastName + " - " + user.PhoneNumber + " - " + user.Gender + " - " + user.Birthday + " - " + user.EmailAddress;
             
         }
