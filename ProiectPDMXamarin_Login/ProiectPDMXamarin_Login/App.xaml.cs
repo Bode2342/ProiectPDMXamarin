@@ -1,5 +1,4 @@
-﻿using ProiectPDMXamarin.Models;
-using ProiectPDMXamarin.Pages;
+﻿using ProiectPDMXamarin.Pages;
 using Xamarin.Forms;
 namespace ProiectPDMXamarin_Login
 {
@@ -8,15 +7,7 @@ namespace ProiectPDMXamarin_Login
         public App()
         {
             InitializeComponent();
-            User user = new User();
-            user.FirstName = "Simona";
-            user.LastName = "Pascal";
-            user.Birthday = "1998-03-26";
-            user.Gender = "Female";
-            user.PhoneNumber = "0828292922";
-            user.Password = "bau bau";
-            user.EmailAddress = "simo@gmail.com";
-            MainPage = new NavigationPage(new MasterPage(user));
+            MainPage = new NavigationPage(new ListaMese());
         }
 
         protected override void OnStart()
