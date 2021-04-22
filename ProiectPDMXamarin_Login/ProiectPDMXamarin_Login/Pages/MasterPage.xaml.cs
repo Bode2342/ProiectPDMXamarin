@@ -14,7 +14,7 @@ namespace ProiectPDMXamarin.Pages
         public User user;
         MasterViewModel masterViewModel;
         DaoUser daoUser;
-        public MasterPage(User user)
+        public MasterPage(User user, bool initialLoad = true)
         {
             InitializeComponent();
             daoUser = new DaoUser();
@@ -23,7 +23,10 @@ namespace ProiectPDMXamarin.Pages
             BindingContext = masterViewModel;
             navigationList.ItemsSource = masterViewModel.menu;
 
-            Detail = new NavigationPage(new ProfilePage(user));
+            if(initialLoad)
+                Detail = new NavigationPage(new ProfilePage(user));
+            else
+                Detail = new NavigationPage(new ListaMese());
         }
 
         private void Item_Tapped(object sender, ItemTappedEventArgs e)

@@ -13,12 +13,13 @@ namespace ProiectPDMXamarin.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AdaugaMasa : ContentPage
     {
+        MasaViewModel vm = new MasaViewModel();
+
         public AdaugaMasa()
         {
             InitializeComponent();
-            MasaViewModel masaViewModel = new MasaViewModel();
-            masaViewModel.Navigation = Navigation;
-            BindingContext = masaViewModel;
+            vm.Navigation = Navigation;
+            BindingContext = vm;
         }
     }
 }
