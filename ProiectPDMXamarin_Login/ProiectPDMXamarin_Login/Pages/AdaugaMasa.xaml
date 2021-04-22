@@ -4,7 +4,8 @@
              x:Class="ProiectPDMXamarin.Pages.AdaugaMasa"
              Title="Adauga Masa">
     <ContentPage.Content>
-        <Grid>
+        
+        <Grid Padding="40">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

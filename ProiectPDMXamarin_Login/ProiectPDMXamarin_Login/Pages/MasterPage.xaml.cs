@@ -55,7 +55,21 @@ namespace ProiectPDMXamarin.Pages
                             IsPresented = false;
                         }
                         break;
+                    case "Recipes":
+                        {
 
+                            Detail.Navigation.PushAsync(new RecipeListPage());
+                            IsPresented = false;
+                        }
+                        break;
+                    case "Body index":
+                        {
+
+                            Detail.Navigation.PushAsync(new CalculatorIBM());
+                            IsPresented = false;
+                        }
+                        break;
+                        
                 }
             }
             catch (Exception ex)
