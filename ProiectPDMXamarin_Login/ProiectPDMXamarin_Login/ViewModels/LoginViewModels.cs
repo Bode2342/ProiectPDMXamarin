@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProiectPDMXamarin.Models;
+using ProiectPDMXamarin.Pages;
+using ProiectPDMXamarin.Services;
+using System;
 using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -9,6 +12,8 @@ namespace ProiectPDMXamarin_Login.ViewModels
         public Action DisplayInvalidLoginPrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         private string email;
+        DaoUser daoUser;
+        public INavigation Navigation { get; set; }
         public string Email
         {
             get { return email; }
@@ -33,12 +38,20 @@ namespace ProiectPDMXamarin_Login.ViewModels
         {
             SubmitCommand = new Command(OnSubmit);
         }
-        public void OnSubmit()
+        public async void OnSubmit()
         {
-            if (email != "macoratti@yahoo.com" || password != "secret")
+            daoUser = new DaoUser();
+            User user = new User();
+            user.EmailAddress = email;
+
+            user.Password = password;
+            user = daoUser.LoginValidate(user);
+            if (user != null)
             {
-                DisplayInvalidLoginPrompt();
+                
+                await Navigation.PushAsync(new MasterPage(user));
             }
+  
         }
     }
 }

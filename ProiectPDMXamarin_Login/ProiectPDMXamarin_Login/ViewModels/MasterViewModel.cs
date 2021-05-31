@@ -27,12 +27,12 @@ namespace ProiectPDMXamarin.ViewModels
             daoUser = new DaoUser();
             if(user != null)
             {
-                daoUser.AddUser(user);
-                this.user = daoUser.searchUserById(user);
+                //daoUser.AddUser(user);
+                //this.user = daoUser.searchUserById(user);
                 AddMenuItems();
                 //ItemTappedCommand = new Command(Item_Tapped);
 
-                UpdateUI(daoUser.searchUserById(user));
+                UpdateUI(user);
             }
 
 
@@ -53,15 +53,19 @@ namespace ProiectPDMXamarin.ViewModels
         {
 
             UserName = user.FirstName + " " + user.LastName;
-            DateTime zeroTime = new DateTime(1, 1, 1);
+            if(user.Birthday != null)
+            {
+                DateTime zeroTime = new DateTime(1, 1, 1);
 
-            DateTime a = DateTime.Now;
-            DateTime b = DateTime.Parse(user.Birthday);
+                DateTime a = DateTime.Now;
+                DateTime b = DateTime.Parse(user.Birthday);
 
-            TimeSpan span = a - b;
+                TimeSpan span = a - b;
 
-            int years = (zeroTime + span).Year - 1;
-            UserDetails = user.Gender + " - " + years + " years old";
+                int years = (zeroTime + span).Year - 1;
+                UserDetails = user.Gender + " - " + years + " years old";
+            }
+
         }
 
   

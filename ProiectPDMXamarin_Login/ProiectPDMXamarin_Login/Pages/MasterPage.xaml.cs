@@ -34,7 +34,7 @@ namespace ProiectPDMXamarin.Pages
             try
             {
                 var item = e.Item as MenuItems;
-                masterViewModel.UpdateUI(daoUser.searchUserById(user));
+                masterViewModel.UpdateUI(user);
                 switch (item.OptionName)
                 {
                     case "Add a meal":

@@ -45,10 +45,15 @@ namespace ProiectPDMXamarin.ViewModels
             LastName = user.LastName;
             EmailAddress = user.EmailAddress;
             PhoneNumber = user.PhoneNumber;
-            DateTime date = DateTime.Parse(user.Birthday);
-            Birthday = date;
+            if(user.Birthday != null)
+            {
+                DateTime date = DateTime.Parse(user.Birthday);
+                Birthday = date;
+            }
+
             Gender = user.Gender;
-            if (user.ProfileImage != null)
+            var array = new byte[] { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
+            if (user.ProfileImage != array && user.ProfileImage != null)
             {
                 Stream stream = new MemoryStream(user.ProfileImage);
                 ImageView = ImageSource.FromStream(() => stream);

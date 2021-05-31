@@ -11,6 +11,7 @@ namespace ProiectPDMXamarin.Services
     class DaoUser
     {
         SQLiteConnection connection;
+        SQLiteCommand comand;
         public DaoUser()
         {
             string caleBazaDeDate = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "nutrition_database.db");
@@ -21,6 +22,7 @@ namespace ProiectPDMXamarin.Services
 
         public bool AddUser(User user)
         {
+           
             bool ok = false;
             try
             {
@@ -74,11 +76,13 @@ namespace ProiectPDMXamarin.Services
                 return false;
         }
 
-        public User searchUserById(User u)
+      
+
+        public User LoginValidate(User u)
         {
             var data = connection.Table<User>();
-            var d1 = (from values in data where values.Id == u.Id select values).SingleOrDefault();
-            if (true)
+            var d1 = data.Where(x => x.EmailAddress == u.EmailAddress && x.Password == u.Password).FirstOrDefault();
+            if (d1 != null)
             {
 
                 d1.Id = u.Id;
@@ -90,13 +94,12 @@ namespace ProiectPDMXamarin.Services
                 user.Password = d1.Password;
                 user.PhoneNumber = d1.PhoneNumber;
                 user.ProfileImage = d1.ProfileImage;
+                user.EmailAddress = d1.EmailAddress;
                 return user;
             }
             else
                 return null;
         }
-
-
 
     }
 }

@@ -12,6 +12,7 @@ namespace ProiectPDMXamarin_Login.Pages
         public LoginPage()
         {
             var vm = new LoginViewModel();
+            vm.Navigation = Navigation;
             this.BindingContext = vm;
             vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error!", "Invalid Login. Please try again!", "OK");
             InitializeComponent();
@@ -25,6 +26,11 @@ namespace ProiectPDMXamarin_Login.Pages
             {
                 vm.SubmitCommand.Execute(null);
             };
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegistrationPage());
         }
     }
 }
